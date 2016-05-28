@@ -15,7 +15,7 @@
 # limitations under the License.
 
 if [[ ${GET_HOSTS_FROM:-dns} == "env" ]]; then
-	  redis-server --slaveof ${OC_SERVICE_HOST} 6379
+	  redis-server --protected-mode no --slaveof ${OC_SERVICE_HOST} 6379
 	else
-	  redis-server --slaveof oc 6379
+	  redis-server --protected-mode no --slaveof oc 6379
 fi
